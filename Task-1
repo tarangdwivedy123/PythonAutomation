@@ -1,0 +1,39 @@
+import pandas as pd 
+import smtplib 
+import pywhatkit as kit
+  
+# Email_Credentials
+your_email = "itstarang999@gmail.com"
+your_password = "2129forever"
+  
+# establishing connection with gmail 
+server = smtplib.SMTP_SSL('smtp.gmail.com', 465) 
+server.ehlo() 
+server.login(your_email, your_password) 
+  
+# reading excel file
+email_list = pd.read_excel(r'K:\at\emlauto.xlsx') 
+  
+# getting the names and the emails 
+names = email_list['NAME'] 
+emails = email_list['EMAIL'] 
+phn=email_list['PHN']
+  
+# iterate through the records 
+for i in range(len(emails)): 
+  
+    # for every record get the name and the email addresses 
+    name = names[i] 
+    email = emails[i] 
+    phn= phn[i]
+  
+    # the message to be emailed 
+    message = "Hello " + name 
+  
+    # sending the email 
+    server.sendmail(your_email, [email], message) 
+    kit.sendwhatmsg("+91"+'phn', "Sample message", 11, 43)
+  
+# close the smtp server 
+server.close() 
+
