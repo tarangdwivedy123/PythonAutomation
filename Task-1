@@ -3,8 +3,8 @@ import smtplib
 import pywhatkit as kit
   
 # Email_Credentials
-your_email = "itstarang999@gmail.com"
-your_password = "2129forever"
+your_email = "xxxx"
+your_password = "xxxx"
   
 # establishing connection with gmail 
 server = smtplib.SMTP_SSL('smtp.gmail.com', 465) 
